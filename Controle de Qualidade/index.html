@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Controle de Qualidade por Imagem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Controle de Qualidade por Imagem</h1>
+
+    <!-- Upload das imagens -->
+    <div class="file-inputs">
+      <label>Imagem Referência:
+        <input type="file" id="img1" accept="image/*">
+      </label>
+
+      <label>Imagem a Testar:
+        <input type="file" id="img2" accept="image/*">
+      </label>
+    </div>
+
+    <!-- Visualização das imagens carregadas -->
+    <div class="image-preview">
+      <div>
+        <strong>Imagem Referência:</strong>
+        <img id="preview1" width="100" height="100" alt="Imagem referência">
+      </div>
+      <div>
+        <strong>Imagem a Testar:</strong>
+        <img id="preview2" width="100" height="100" alt="Imagem teste">
+      </div>
+    </div>
+
+    <!-- Controle do limiar -->
+    <div class="limiar-container">
+      <label for="limiar">Limiar de aprovação:</label>
+      <input type="range" id="limiar" min="1000" max="3000" step="250" value="2000">
+      <span id="valor-limiar">2000</span>
+    </div>
+
+    <!-- Botão para comparar as imagens -->
+    <button id="botaoComparar">Comparar</button>
+
+    <!-- Resultado da comparação -->
+    <p id="resultado">Distância Euclidiana: -</p>
+
+    <!-- Assinaturas visuais -->
+    <h3>Assinatura da Imagem 1</h3>
+    <canvas id="signature1" width="100" height="100"></canvas>
+
+    <h3>Assinatura da Imagem 2</h3>
+    <canvas id="signature2" width="100" height="100"></canvas>
+
+    <!-- Canvases ocultos para processar pixel das imagens -->
+    <canvas id="canvas1" width="100" height="100" style="display:none;"></canvas>
+    <canvas id="canvas2" width="100" height="100" style="display:none;"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
